@@ -1,0 +1,16 @@
+{
+  "name": "scrothers/vphp",
+  "description": "PHP API bindings for vSphere/vCenter",
+  "keywords": ["vmware", "vsphere", "vcenter", "api"],
+  "license": "GPL-2.0",
+  "authors": [
+    {
+      "name": "Steven Crothers",
+      "email": "steven.crothers@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {"vPHP\\": "src"}
+  }
+}
