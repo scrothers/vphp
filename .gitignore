@@ -1,3 +1,5 @@
 composer.phar
 vendor/
+vcenter.ini
 composer.lock
+test.php
