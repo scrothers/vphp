@@ -25,7 +25,7 @@ class connect
   private function bind() {
     // Try to gain a successful SOAP bind to the vCenter Server
     try {
-      $this->client = new SoapClient(
+      $this->client = new \SoapClient(
         sprintf("https://%s/sdk/vimService.wsdl", $this->host),
         array(
           'login' => $this->user,
@@ -40,7 +40,7 @@ class connect
 
     // Setup the SOAP service instance
     $msg = array();
-    $msg['_this'] = new Soapvar ("ServiceInstance", XSD_STRING, "ServiceInstance");
+    $msg['_this'] = new \Soapvar ("ServiceInstance", XSD_STRING, "ServiceInstance");
     $result = $this->client->RetrieveServiceContent($msg);
 
     // Login to the vCenter Server
