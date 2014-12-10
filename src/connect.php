@@ -19,7 +19,7 @@ class connect
     $this->host = $host;
     $this->user = $user;
     $this->pass = $pass;
-    $this->bind();
+    print_r$this->bind();
   }
 
   private function bind() {
@@ -35,7 +35,7 @@ class connect
         )
       );
     } catch (Exception $e) {
-      die(sprintf("Error: Failed to connect to vCenter, error: %s", $e-getMessage()));
+      die(sprintf("Error: Failed to connect to vCenter, error: %s", $e->getMessage()));
     }
 
     // Setup the SOAP service instance
@@ -48,7 +48,11 @@ class connect
     $msg['_this'] = $result->returnval->sessionManager;
     $msg['userName'] = $this->user;
     $msg['password'] = $this->pass;
-    $result = $this->client->login($msg);
-    return $result;
+    try{
+      $result = $this->client->login($msg);
+      return $result;
+    } catch (Exception $e) {
+      die(sprintf("Error: Failed to connect to vCenter, error: %s", $e->getMessage();));
+    }
   }
 }
